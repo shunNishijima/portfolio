@@ -8,15 +8,99 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <style>
-        /* パーティクルエフェクト用 */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
+        /* グリッチエフェクト用 */
+        .glitch-container {
+            position: relative;
+            overflow: hidden;
         }
+
+        .glitch {
+            position: relative;
+            display: inline-block;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            animation: glitch 2s infinite;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.8;
+            clip: rect(0, 900px, 0, 0);
+        }
+
+        .glitch::before {
+            color: #ff00c1;
+            z-index: -1;
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            color: #00fff9;
+            z-index: -2;
+            animation: glitch-anim2 2s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-2px, 2px);
+            }
+            40% {
+                transform: translate(-2px, -2px);
+            }
+            60% {
+                transform: translate(2px, 2px);
+            }
+            80% {
+                transform: translate(2px, -2px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(12px, 9999px, 14px, 0);
+            }
+            25% {
+                clip: rect(85px, 9999px, 90px, 0);
+            }
+            50% {
+                clip: rect(45px, 9999px, 50px, 0);
+            }
+            75% {
+                clip: rect(75px, 9999px, 80px, 0);
+            }
+            100% {
+                clip: rect(20px, 9999px, 25px, 0);
+            }
+        }
+
+        @keyframes glitch-anim2 {
+            0% {
+                clip: rect(85px, 9999px, 90px, 0);
+            }
+            25% {
+                clip: rect(45px, 9999px, 50px, 0);
+            }
+            50% {
+                clip: rect(75px, 9999px, 80px, 0);
+            }
+            75% {
+                clip: rect(20px, 9999px, 25px, 0);
+            }
+            100% {
+                clip: rect(12px, 9999px, 14px, 0);
+            }
+        }
+
         .relative {
             z-index: 1;
         }
@@ -36,11 +120,7 @@
         .fade-in-on-scroll.show {
             opacity: 1;
         }
-        /* ナイトモード */
-        .dark-mode {
-            background-color: #1a202c;
-            color: #cbd5e0;
-        }
+   
         .modal-overlay {
         position: fixed;
         top: 0;
@@ -83,19 +163,23 @@
     
     <!-- Hero Section -->
     <section id="home" class="h-screen bg-gradient-to-r from-gray-900 to-gray-700 text-white flex items-center justify-center bg-cover bg-center relative slide-up">
-        <div id="particles-js"></div>
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="relative z-10 text-center px-4">
-            <h2 class="text-4xl font-bold mb-6">モダンで使いやすいWebサイトを制作します。</h2>
-            <p class="text-xl mb-8">シンプルで直感的なデザインをお届けします。あなたのブランドに合わせた最適なサイトを作ります。</p>
-            <a href="#portfolio" class="bg-gray-700 px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-gray-800 transition">実績を見る</a>
+        <div class="relative z-10 text-center px-4 glitch-container">
+            <h2 class="text-4xl font-bold mb-6 glitch" data-text="モダンで使いやすいWebサイトを制作します。">
+                モダンで使いやすいWebサイトを制作します。
+            </h2>
+            <p class="text-xl mb-8 glitch" data-text="シンプルで直感的なデザインをお届けします。あなたのブランドに合わせた最適なサイトを作ります。">
+                シンプルで直感的なデザインをお届けします。あなたのブランドに合わせた最適なサイトを作ります。
+            </p>
+            <!-- ボタンを文字列の下に配置 -->
+            <div class="flex justify-center">
+                <a href="#portfolio" class="bg-gray-700 px-10 py-4 rounded-full text-xl font-semibold shadow-md hover:bg-gray-800 transition block mt-6 max-w-[250px]">
+                    実績を見る
+                </a>
+            </div>
+                        
         </div>
     </section>
-    
-    <div class="fixed top-5 right-5">
-        <button onclick="toggleDarkMode()" class="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-md hover:bg-gray-700 transition">🌙/☀️</button>
-    </div>
-    
 
     <!-- About Section -->
     <section id="about" class="py-20 bg-white fade-in-on-scroll">
@@ -167,20 +251,6 @@
             modal.style.display = 'none';
         }
 
-        // パーティクル設定
-        particlesJS("particles-js", {
-            particles: {
-                number: { value: 80 },
-                size: { value: 3 },
-                move: { speed: 2 }
-            },
-            interactivity: {
-                events: {
-                    onhover: { enable: true, mode: "repulse" }
-                }
-            }
-        });
-
         // スクロール時のフェードイン
         const fadeInElements = document.querySelectorAll('.fade-in-on-scroll');
         const observer = new IntersectionObserver((entries) => {
@@ -191,11 +261,6 @@
             });
         });
         fadeInElements.forEach(el => observer.observe(el));
-
-        // ナイトモードの切り替え
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
 
     </script>
 </body>
