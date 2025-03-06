@@ -5,61 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ポートフォリオ | あなたの名前</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script> <!-- Optional for interaction -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script>
+    <style>
+        /* Fade in animation */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Slide-up animation */
+        .slide-up {
+            animation: slideUp 1s ease-out;
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Hover effect for buttons */
+        .hover\:bg-gray-700:hover {
+            background-color: #4a5568;
+        }
+
+        /* Card hover effect */
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 60%;
+            max-width: 700px;
+        }
+
+        .modal-content img {
+            width: 100%;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-800 text-gray-200">
     <!-- Header -->
-    <header class="bg-white shadow-md fixed w-full z-10">
+    <header class="bg-white shadow-md fixed w-full z-10 fade-in">
         <div class="container mx-auto flex justify-between items-center py-4 px-6">
-            <h1 class="text-2xl font-bold text-indigo-600">Webデザイナー あなたの名前</h1>
+            <h1 class="text-2xl font-bold text-gray-800">Webデザイナー あなたの名前</h1>
             <nav>
                 <ul class="flex space-x-6">
-                    <li><a href="#home" class="hover:text-indigo-600 transition">ホーム</a></li>
-                    <li><a href="#about" class="hover:text-indigo-600 transition">自己紹介</a></li>
-                    <li><a href="#portfolio" class="hover:text-indigo-600 transition">実績</a></li>
-                    <li><a href="#contact" class="hover:text-indigo-600 transition">お問い合わせ</a></li>
+                    <li><a href="#home" class="hover:text-gray-600 transition">ホーム</a></li>
+                    <li><a href="#about" class="hover:text-gray-600 transition">自己紹介</a></li>
+                    <li><a href="#portfolio" class="hover:text-gray-600 transition">実績</a></li>
+                    <li><a href="#contact" class="hover:text-gray-600 transition">お問い合わせ</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     
     <!-- Hero Section -->
-    <section id="home" class="h-screen bg-gradient-to-r from-indigo-600 to-indigo-300 text-white flex items-center justify-center bg-cover bg-center relative">
+    <section id="home" class="h-screen bg-gradient-to-r from-gray-900 to-gray-700 text-white flex items-center justify-center bg-cover bg-center relative slide-up">
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="relative z-10 text-center px-4">
             <h2 class="text-4xl font-bold mb-6">モダンで使いやすいWebサイトを制作します。</h2>
             <p class="text-xl mb-8">シンプルで直感的なデザインをお届けします。あなたのブランドに合わせた最適なサイトを作ります。</p>
-            <a href="#portfolio" class="bg-indigo-700 px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-indigo-800 transition">実績を見る</a>
+            <a href="#portfolio" class="bg-gray-700 px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-gray-800 transition">実績を見る</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-20 bg-white fade-in">
         <div class="container mx-auto text-center px-6">
-            <h2 class="text-3xl font-bold text-indigo-600 mb-8">自己紹介</h2>
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">自己紹介</h2>
             <p class="text-lg text-gray-700 mb-6">私は経験豊富なWebデザイナーで、クリエイティブで魅力的なデザインを提供します。特にユーザー中心のデザインを重視しています。</p>
             <p class="text-lg text-gray-700">プロジェクトには常に情熱を注ぎ、ビジュアルと機能性の両方を考慮してウェブサイトを作成しています。</p>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-indigo-50">
+    <section id="portfolio" class="py-20 bg-gray-900 fade-in">
         <div class="container mx-auto text-center px-6">
-            <h2 class="text-3xl font-bold text-indigo-600 mb-8">実績</h2>
+            <h2 class="text-3xl font-bold text-gray-200 mb-8">実績</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="https://via.placeholder.com/300" alt="Project 1" class="w-full h-48 object-cover mb-4 rounded-lg">
+                <div class="bg-white p-6 rounded-lg shadow-lg card">
+                    <img src="https://picsum.photos/400/300" alt="Project 1" class="w-full h-48 object-cover mb-4 rounded-lg cursor-pointer" onclick="openModal(1)">
                     <h3 class="text-xl font-semibold mb-2">プロジェクトタイトル</h3>
                     <p class="text-gray-600">説明文がここに入ります。シンプルなデザインで、ユーザーに優しいインターフェースを提供します。</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="https://via.placeholder.com/300" alt="Project 2" class="w-full h-48 object-cover mb-4 rounded-lg">
+                <div class="bg-white p-6 rounded-lg shadow-lg card">
+                    <img src="https://picsum.photos/400/300" alt="Project 2" class="w-full h-48 object-cover mb-4 rounded-lg cursor-pointer" onclick="openModal(2)">
                     <h3 class="text-xl font-semibold mb-2">プロジェクトタイトル</h3>
                     <p class="text-gray-600">説明文がここに入ります。直感的なUI/UXデザインで高い評価を得ました。</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="https://via.placeholder.com/300" alt="Project 3" class="w-full h-48 object-cover mb-4 rounded-lg">
+                <div class="bg-white p-6 rounded-lg shadow-lg card">
+                    <img src="https://picsum.photos/400/300" alt="Project 3" class="w-full h-48 object-cover mb-4 rounded-lg cursor-pointer" onclick="openModal(3)">
                     <h3 class="text-xl font-semibold mb-2">プロジェクトタイトル</h3>
                     <p class="text-gray-600">説明文がここに入ります。洗練されたデザインで業界標準を超えるクオリティを目指します。</p>
                 </div>
@@ -68,14 +134,14 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
+    <section id="contact" class="py-20 bg-white fade-in">
         <div class="container mx-auto text-center px-6">
-            <h2 class="text-3xl font-bold text-indigo-600 mb-8">お問い合わせ</h2>
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">お問い合わせ</h2>
             <form id="contact-form" class="w-full max-w-lg mx-auto">
                 <input type="text" name="name" placeholder="お名前" class="w-full p-4 mb-4 border border-gray-300 rounded-lg" required>
                 <input type="email" name="email" placeholder="メールアドレス" class="w-full p-4 mb-4 border border-gray-300 rounded-lg" required>
                 <textarea name="message" placeholder="メッセージ" class="w-full p-4 mb-6 border border-gray-300 rounded-lg" rows="4" required></textarea>
-                <button type="submit" class="w-full py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">送信する</button>
+                <button type="submit" class="w-full py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-800 transition">送信する</button>
             </form>
         </div>
     </section>
@@ -87,6 +153,34 @@
         </div>
     </footer>
 
-    <script src="javascript/main.js"></script>
+    <!-- Modal -->
+    <div id="modal1" class="modal-overlay" onclick="closeModal(1)">
+        <div class="modal-content">
+            <img src="https://picsum.photos/600/400" alt="Project 1">
+            <p class="text-lg mt-4">詳細情報がここに入ります。</p>
+        </div>
+    </div>
+    <div id="modal2" class="modal-overlay" onclick="closeModal(2)">
+        <div class="modal-content">
+            <img src="https://picsum.photos/600/400" alt="Project 2">
+            <p class="text-lg mt-4">詳細情報がここに入ります。</p>
+        </div>
+    </div>
+    <div id="modal3" class="modal-overlay" onclick="closeModal(3)">
+        <div class="modal-content">
+            <img src="https://picsum.photos/600/400" alt="Project 3">
+            <p class="text-lg mt-4">詳細情報がここに入ります。</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) {
+            document.getElementById('modal' + id).style.display = 'flex';
+        }
+
+        function closeModal(id) {
+            document.getElementById('modal' + id).style.display = 'none';
+        }
+    </script>
 </body>
 </html>
