@@ -4,42 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ポートフォリオ | あなたの名前</title>
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script> <!-- Optional for interaction -->
 </head>
 
 <body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
     <header class="bg-white shadow-md fixed w-full z-10">
         <div class="container mx-auto flex justify-between items-center py-4 px-6">
             <h1 class="text-2xl font-bold text-indigo-600">Webデザイナー あなたの名前</h1>
             <nav>
                 <ul class="flex space-x-6">
-                    <li><a href="#home" class="hover:text-indigo-600">ホーム</a></li>
-                    <li><a href="#about" class="hover:text-indigo-600">自己紹介</a></li>
-                    <li><a href="#portfolio" class="hover:text-indigo-600">実績</a></li>
-                    <li><a href="#contact" class="hover:text-indigo-600">お問い合わせ</a></li>
+                    <li><a href="#home" class="hover:text-indigo-600 transition">ホーム</a></li>
+                    <li><a href="#about" class="hover:text-indigo-600 transition">自己紹介</a></li>
+                    <li><a href="#portfolio" class="hover:text-indigo-600 transition">実績</a></li>
+                    <li><a href="#contact" class="hover:text-indigo-600 transition">お問い合わせ</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     
-
-    <section id="home" class="h-screen flex items-center justify-center bg-indigo-50">
-        <div class="text-center">
-            <h2 class="text-4xl font-bold text-indigo-600 mb-4">モダンで使いやすいWebサイトを制作します。</h2>
-            <p class="text-gray-700 mb-6">シンプルで直感的なデザインをお届けします。</p>
-            <a href="#portfolio" class="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">実績を見る</a>
+    <!-- Hero Section -->
+    <section id="home" class="h-screen bg-gradient-to-r from-indigo-600 to-indigo-300 text-white flex items-center justify-center bg-cover bg-center relative">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 text-center px-4">
+            <h2 class="text-4xl font-bold mb-6">モダンで使いやすいWebサイトを制作します。</h2>
+            <p class="text-xl mb-8">シンプルで直感的なデザインをお届けします。あなたのブランドに合わせた最適なサイトを作ります。</p>
+            <a href="#portfolio" class="bg-indigo-700 px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-indigo-800 transition">実績を見る</a>
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-white py-4">
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto text-center px-6">
+            <h2 class="text-3xl font-bold text-indigo-600 mb-8">自己紹介</h2>
+            <p class="text-lg text-gray-700 mb-6">私は経験豊富なWebデザイナーで、クリエイティブで魅力的なデザインを提供します。特にユーザー中心のデザインを重視しています。</p>
+            <p class="text-lg text-gray-700">プロジェクトには常に情熱を注ぎ、ビジュアルと機能性の両方を考慮してウェブサイトを作成しています。</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-indigo-50">
+        <div class="container mx-auto text-center px-6">
+            <h2 class="text-3xl font-bold text-indigo-600 mb-8">実績</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="https://via.placeholder.com/300" alt="Project 1" class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">プロジェクトタイトル</h3>
+                    <p class="text-gray-600">説明文がここに入ります。シンプルなデザインで、ユーザーに優しいインターフェースを提供します。</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="https://via.placeholder.com/300" alt="Project 2" class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">プロジェクトタイトル</h3>
+                    <p class="text-gray-600">説明文がここに入ります。直感的なUI/UXデザインで高い評価を得ました。</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="https://via.placeholder.com/300" alt="Project 3" class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">プロジェクトタイトル</h3>
+                    <p class="text-gray-600">説明文がここに入ります。洗練されたデザインで業界標準を超えるクオリティを目指します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto text-center px-6">
+            <h2 class="text-3xl font-bold text-indigo-600 mb-8">お問い合わせ</h2>
+            <form id="contact-form" class="w-full max-w-lg mx-auto">
+                <input type="text" name="name" placeholder="お名前" class="w-full p-4 mb-4 border border-gray-300 rounded-lg" required>
+                <input type="email" name="email" placeholder="メールアドレス" class="w-full p-4 mb-4 border border-gray-300 rounded-lg" required>
+                <textarea name="message" placeholder="メッセージ" class="w-full p-4 mb-6 border border-gray-300 rounded-lg" rows="4" required></textarea>
+                <button type="submit" class="w-full py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">送信する</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
         <div class="container mx-auto text-center">
             <p>&copy; 2024 あなたの名前. All Rights Reserved.</p>
         </div>
     </footer>
 
-
     <script src="javascript/main.js"></script>
 </body>
-
 </html>
