@@ -193,25 +193,83 @@
     <section id="portfolio" class="py-20 bg-gray-900 fade-in-on-scroll">
         <div class="container mx-auto text-center px-6">
             <h2 class="text-3xl font-bold text-gray-200 mb-8">実績</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="bg-white p-6 rounded-lg shadow-lg card hover:rotate" onclick="openModal(1)">
-                    <img src="https://picsum.photos/400/300" alt="Project 1" class="w-full h-48 object-cover mb-4 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-2">プロジェクトタイトル</h3>
-                    <p class="text-gray-600">説明文がここに入ります。</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg card hover:rotate" onclick="openModal(2)">
-                    <img src="https://picsum.photos/400/300" alt="Project 2" class="w-full h-48 object-cover mb-4 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-2">プロジェクトタイトル</h3>
-                    <p class="text-gray-600">説明文がここに入ります。</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg card hover:rotate" onclick="openModal(3)">
-                    <img src="https://picsum.photos/400/300" alt="Project 3" class="w-full h-48 object-cover mb-4 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-2">プロジェクトタイトル</h3>
-                    <p class="text-gray-600">説明文がここに入ります。</p>
-                </div>                
+
+            <!-- タブ -->
+            <div class="tabs mb-8">
+                <button class="tab-button px-6 py-3 bg-gray-700 text-white rounded-l-lg focus:outline-none" onclick="showTab('gas')">GAS/スプレッドシート</button>
+                <button class="tab-button px-6 py-3 bg-gray-700 text-white focus:outline-none" onclick="showTab('writer')">Webライター</button>
+                <button class="tab-button px-6 py-3 bg-gray-700 text-white rounded-r-lg focus:outline-none" onclick="showTab('designer')">Webデザイナー</button>
+                <button class="tab-button px-6 py-3 bg-gray-700 text-white focus:outline-none" onclick="showTab('developer')">Webエンジニア</button>
             </div>
+
+            <!-- タブコンテンツ -->
+            <div id="gas" class="tab-content hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- GASのポートフォリオ内容 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://picsum.photos/400/300" alt="GAS P1" onclick="openModal(1)" class="w-full h-48 object-cover mb-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">GASプロジェクト1</h3>
+                        <p class="text-gray-600">Google Apps Scriptを活用してスプレッドシートを自動化したプロジェクトです。</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://picsum.photos/400/300" alt="GAS P1" onclick="openModal(1)" class="w-full h-48 object-cover mb-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">GASプロジェクト2</h3>
+                        <p class="text-gray-600">データ集計を自動化するスクリプトの作成実績。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="writer" class="tab-content hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Webライターのポートフォリオ内容 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://picsum.photos/400/300" alt="Writer P1" onclick="openModal(2)" class="w-full h-48 object-cover mb-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">ライティングプロジェクト1</h3>
+                        <p class="text-gray-600">ブログ記事の執筆、SEO最適化に取り組んだプロジェクトです。</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://picsum.photos/400/300" alt="Writer P1" onclick="openModal(2)" class="w-full h-48 object-cover mb-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">ライティングプロジェクト2</h3>
+                        <p class="text-gray-600">ウェブサイト用コンテンツの作成実績。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="designer" class="tab-content hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Webデザイナーのポートフォリオ内容 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://picsum.photos/400/300" alt="Design P1" onclick="openModal(3)" class="w-full h-48 object-cover mb-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">デザインプロジェクト1</h3>
+                        <p class="text-gray-600">ウェブデザインのフロントエンド開発。</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://picsum.photos/400/300" alt="Design P1" onclick="openModal(3)" class="w-full h-48 object-cover mb-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">デザインプロジェクト2</h3>
+                        <p class="text-gray-600">ユーザーインターフェースのデザイン制作。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="developer" class="tab-content hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Webエンジニアのポートフォリオ内容 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://picsum.photos/400/300" alt="Engineer P1" onclick="openModal(4)" class="w-full h-48 object-cover mb-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">エンジニアプロジェクト1</h3>
+                        <p class="text-gray-600">Webアプリケーションの開発プロジェクト。</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://picsum.photos/400/300" alt="Engineer P1" onclick="openModal(4)" class="w-full h-48 object-cover mb-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">エンジニアプロジェクト2</h3>
+                        <p class="text-gray-600">API開発とデータベース設計の実績。</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-6">
@@ -223,24 +281,49 @@
     <!-- Modal -->
     <div id="modal1" class="modal-overlay" onclick="closeModal(1)">
         <div class="modal-content">
-            <img src="https://picsum.photos/600/400" alt="Project 1">
+            <img src="https://picsum.photos/600/400" alt="GAS P1">
             <p class="text-lg mt-4">詳細情報がここに入ります。</p>
         </div>
     </div>
     <div id="modal2" class="modal-overlay" onclick="closeModal(2)">
         <div class="modal-content">
-            <img src="https://picsum.photos/600/400" alt="Project 2">
+            <img src="https://picsum.photos/600/400" alt="Writer P1">
             <p class="text-lg mt-4">詳細情報がここに入ります。</p>
         </div>
     </div>
     <div id="modal3" class="modal-overlay" onclick="closeModal(3)">
         <div class="modal-content">
-            <img src="https://picsum.photos/600/400" alt="Project 3">
+            <img src="https://picsum.photos/600/400" alt="Design P1">
+            <p class="text-lg mt-4">詳細情報がここに入ります。</p>
+        </div>
+    </div>
+    <div id="modal4" class="modal-overlay" onclick="closeModal(4)">
+        <div class="modal-content">
+            <img src="https://picsum.photos/600/400" alt="Engineer P1">
             <p class="text-lg mt-4">詳細情報がここに入ります。</p>
         </div>
     </div>
 
     <script>
+            // タブ表示切替
+        function showTab(tabId) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            const tabButtons = document.querySelectorAll('.tab-button');
+
+            tabContents.forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            tabButtons.forEach(button => {
+                button.classList.remove('bg-gray-800');
+                button.classList.add('bg-gray-700');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            event.target.classList.add('bg-gray-800');
+        }
+
+        // モーダルの開け閉め
         function openModal(id) {
             const modal = document.getElementById('modal' + id);
             modal.style.display = 'flex';
