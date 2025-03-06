@@ -1,0 +1,11 @@
+portfolio/
+├── index.html         # ホームページ
+├── about.html         # 自己紹介ページ
+├── projects.html      # 実績紹介ページ
+├── contact.html       # 連絡フォーム
+├── css/
+│   ├── styles.css     # 共通CSS
+├── js/
+│   ├── main.js        # 共通JavaScript
+├── images/            # 画像保存用
+├── README.md          # GitHub用説明書
